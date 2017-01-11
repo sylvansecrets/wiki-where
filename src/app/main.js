@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import {Header} from './header';
+import Header from './header.js';
 import Alkali from './cesium.js';
 import {Player} from './player-box.js';
 import {Trivia} from './trivia.js';
@@ -7,7 +7,7 @@ import Submit from './submit.js';
 import Welcome from './welcome.js';
 
 //eslint-disable-next-line
-import {addHint, newQuestion, setPlayerAnswerCoords, newGame, submitGuess, flewHome} from './actions/stateActions.js';
+import {addHint, newQuestion, setPlayerAnswerCoords, newGame, reset, submitGuess, flewHome} from './actions/stateActions.js';
 
 export const MAX_HINT = 3;
 export const MAX_QUESTION = 5;
@@ -49,6 +49,7 @@ export class Main extends Component {
     this.setPlayerAnswerCoords = setPlayerAnswerCoords.bind(this);
     this.handleGuess = submitGuess.bind(this);
     this.newGame = newGame.bind(this);
+    this.reset = reset.bind(this);
     this.flewHome = flewHome.bind(this);
   }
 
@@ -66,10 +67,11 @@ export class Main extends Component {
             flewHome={this.flewHome}
             />
         </div>
-        <div className="header">
+        {/* <div className="header">
           <h1>Wiki Where</h1>
-        </div>
-        {/* <Header/> */}
+        </div>*/}
+        }
+        <Header reset={this.reset}/>
         <div className="main row">
           <div>
             <Player

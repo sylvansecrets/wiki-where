@@ -27,8 +27,8 @@ export default class Alkali extends React.Component {
     this.viewer = new Cesium.Viewer('cesiumContainer', cesiumViewerOptions);
 
     const scene = this.viewer.scene;
-    scene.screenSpaceCameraController.minimumZoomDistance = 2000.0;
-    scene.screenSpaceCameraController.maximumZoomDistance = 30000000.0;
+    scene.screenSpaceCameraController.minimumZoomDistance = 10000.0;
+    scene.screenSpaceCameraController.maximumZoomDistance = 25000000.0;
 
     const handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
 
@@ -118,7 +118,9 @@ export default class Alkali extends React.Component {
       answer.show = false;
       line.show = false;
       if (this.props.flyHomeSwitch === true) {
-        this.viewer.camera.flyHome();
+        this.viewer.camera.flyTo({
+          destination: new Cesium.Cartesian3(this.viewer.camera.position.x, this.viewer.camera.position.y, this.viewer.scene.screenSpaceCameraController.maximumZoomDistance)
+        });
         const guess = this.viewer.entities.getById('guess');
         guess.show = false;
         this.props.flewHome();

@@ -16,8 +16,8 @@ export class Player extends Component {
   render() {
     return (
       <div style={styles.container}>
-        Round: {this.props.currentRound}/5 <br/>
-        Score: {this.props.playerScore}
+        ROUND: {this.props.currentRound}/5 <br/>
+        SCORE: {this.props.playerScore}
       </div>
     );
   }

@@ -48,6 +48,9 @@ export function newQuestion(difficulty = 'easy') {
   }
   return generateQuestion(difficulty)
     .then(questionObj => {
+      if (this.state.data.usedCities.includes(questionObj.cityString)) {
+        return generateQuestion(difficulty);
+      }
       this.setState({
         data: update(
           this.state.data,
@@ -61,7 +64,8 @@ export function newQuestion(difficulty = 'easy') {
             answerCity: {$set: questionObj.cityString},
             score: {$set: this.state.data.scoreToAdd + this.state.data.score},
             scoreToAdd: {$set: 0},
-            currentDistance: {$set: 0}
+            currentDistance: {$set: 0},
+            usedCities: {$push: [questionObj.cityString]}
           }
         )
       });
@@ -116,7 +120,18 @@ export function newGame(difficulty = 'easy') {
         gameState: {$set: 'initial'},
         questionCount: {$set: 0},
         score: {$set: 0},
-        scoreToAdd: {$set: 0}
+        scoreToAdd: {$set: 0},
+        usedCities: {$set: []}
+      })
+  });
+}
+
+export function reset() {
+  this.setState({
+    data: update(this.state.data,
+      {
+        flyHomeSwitch: {$set: true},
+        gameState: {$set: 'questioning'}
       })
   });
 }

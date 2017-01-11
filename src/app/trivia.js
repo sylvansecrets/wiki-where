@@ -6,11 +6,8 @@ const styles = {
   container: {
     border: '0px solid red',
     borderRadius: '6px',
-    // display: 'flex',
-    // flexDirection: 'column',
-    // minWidth: '250px',
-    maxHeight: '600px',
-    padding: '10px',
+    maxHeight: '540px',
+    padding: '0px 10px',
     overflowX: 'hidden',
     overflowY: 'auto'
   }
@@ -21,7 +18,9 @@ export class Trivia extends Component {
     return (
       <div>
         <div style={styles.container}>
-          Which city is being described?<br/>
+          Which city is being described?
+        </div>
+        <div style={styles.container}>
           <div>
             <Questions
               hintCount={this.props.stateData.hintCount}

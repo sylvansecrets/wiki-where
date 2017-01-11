@@ -40,7 +40,6 @@ export default class Submit extends React.Component {
   }
 
   componentWillReceiveProps() {
-    // console.log("currentRound", this.props.currentRound);
     if (this.props.currentRound === 0) {
       this.setState({open: false});
     }
