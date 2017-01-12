@@ -72,33 +72,34 @@ export class Main extends Component {
         </div>*/}
         }
         <Header reset={this.reset}/>
-        <div className="main row">
-          <div>
-            <Player
-              playerScore={this.state.data.score}
-              currentRound={this.state.data.questionCount}
-              />
-            <Trivia
-              stateData={this.state.data}
-              addHint={this.addHint}
+          <div className="main row">
+            <div>
+              <Player
+                playerScore={this.state.data.score}
+                currentRound={this.state.data.questionCount}
+                addHint={this.addHint}
+                stateData={this.state.data}
+                />
+              <Trivia
+                stateData={this.state.data}
+                newQuestion={this.newQuestion}
+                setPlayerAnswerCoords={this.setPlayerAnswerCoords}
+                />
+            </div>
+          </div>
+          <div className="submit-btn">
+            <Submit
+              onHandleGuess={this.handleGuess}
+              scoreToAdd={this.state.data.scoreToAdd}
+              answerCity={this.state.data.answerCity}
+              currentDistance={this.state.data.currentDistance}
+              gameState={this.state.data.gameState}
               newQuestion={this.newQuestion}
-              setPlayerAnswerCoords={this.setPlayerAnswerCoords}
+              currentRound={this.state.data.questionCount}
+              newGame={this.newGame}
+              playerScore={this.state.data.score}
               />
           </div>
-        </div>
-        <div className="submit-btn">
-          <Submit
-            onHandleGuess={this.handleGuess}
-            scoreToAdd={this.state.data.scoreToAdd}
-            answerCity={this.state.data.answerCity}
-            currentDistance={this.state.data.currentDistance}
-            gameState={this.state.data.gameState}
-            newQuestion={this.newQuestion}
-            currentRound={this.state.data.questionCount}
-            newGame={this.newGame}
-            playerScore={this.state.data.score}
-            />
-        </div>
       </div>
     );
   }
