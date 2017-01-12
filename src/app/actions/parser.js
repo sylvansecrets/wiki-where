@@ -32,7 +32,7 @@ function censor(text, censorText, replaceText = CENSOR_BLOCK, replaceCount = 5, 
     const word = textList[i];
     let wordPunc = '';
     if (word && word[word.length - 1].match(/[.!?;:"']/)) {
-      wordPunc = word[word.lenght - 1];
+      wordPunc = word[word.length - 1];
     }
     for (let k = 0; k < word.length; k += 1) {
       if (word[k] === censorText[j]) {
