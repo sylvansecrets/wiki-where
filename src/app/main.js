@@ -43,7 +43,7 @@ export class Main extends Component {
         difficulty: 'easy'
       },
       open: true,
-      showSideBar: true
+      showSideBar: false
     };
 
     this.addHint = addHint.bind(this);

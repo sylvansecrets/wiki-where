@@ -96,10 +96,13 @@ h1 {
 }
 
 .questions-container{
-  position: absolute;
-  background-color: rgba(0,0,0,0.3);
-  border-radius: 6px;
+  position: relative;;
+  background-color: rgba(0,0,0,0.0);
+  border: 0px solid red;
+  border-radius: 0px 0px 8px 8px;
+  padding: 0px;
 }
+
 .question-describe {
   font-weight: 500;
   font-size: 1.3em;
@@ -143,6 +146,7 @@ h1 {
   font-size: 16px;
   max-height: 750px;
   margin: 0px 10px;
+  padding: 5px;
   position: relative;
   // width: 310px;
   width: 325px;
