@@ -67,7 +67,8 @@ export function newQuestion(difficulty = 'easy') {
             currentDistance: {$set: 0},
             usedCities: {$push: [questionObj.cityString]}
           }
-        )
+        ),
+        showSideBar: true
       });
     });
 }
