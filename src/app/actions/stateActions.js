@@ -108,7 +108,11 @@ function generateQuestion(difficulty) {
         cityString,
         parsedQuestions
       };
-    });
+    })
+    .catch(error => {
+      console.warn(error);
+      return generateQuestion(difficulty);
+    })
 }
 
 export function newGame(difficulty = 'easy') {
