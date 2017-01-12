@@ -54,15 +54,13 @@ export class Main extends Component {
     this.reset = reset.bind(this);
     this.flewHome = flewHome.bind(this);
     this.hiddenHandler = this.hiddenHandler.bind(this);
-
-
+    this.hideSideBar = this.hideSideBar.bind(this);
 
   }
 
     hiddenHandler(e) {
       e.preventDefault();
       this.setState({showSideBar: !this.state.showSideBar});
-      console.log(this.state.showSideBar);
     }
 
     sideBarClass() {
@@ -75,6 +73,10 @@ export class Main extends Component {
       let outputClass = '';
       if (!this.state.showSideBar) {outputClass = " regress-button"}
       return outputClass;
+    }
+
+    hideSideBar(){
+      this.setState({showSideBar: false});
     }
 
   render() {
@@ -96,7 +98,7 @@ export class Main extends Component {
         </div>*/}
         }
         <Header reset={this.reset}/>
-          <div className={"main row" + "sideBar" + this.sideBarClass()}>
+          <div className={"main row sideBar" + this.sideBarClass()}>
               <Player
                 playerScore={this.state.data.score}
                 currentRound={this.state.data.questionCount}
@@ -120,6 +122,7 @@ export class Main extends Component {
               currentRound={this.state.data.questionCount}
               newGame={this.newGame}
               playerScore={this.state.data.score}
+              hideSideBar={this.hideSideBar}
               />
           </div>
         <div className={"shrink" + this.buttonClass()} onClick={this.hiddenHandler}>
