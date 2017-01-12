@@ -41,6 +41,11 @@ h1 {
   @include responsive-max-height(200px);
 }
 
+.feedback {
+  overflow-y: auto;
+  @include responsive-max-height(200px);
+}
+
 .chevron {
   line-height: 30px;
   font-size: 2.5em;
