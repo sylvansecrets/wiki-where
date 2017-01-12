@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Questions} from './questions.js';
-import Hint from './hint.js';
 
 
 export class Trivia extends Component {
