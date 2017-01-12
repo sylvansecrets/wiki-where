@@ -96,7 +96,7 @@ export default class Summary extends React.Component {
         <div style={styles.container}>
           <RaisedButton label="Summary" onTouchTap={this.handleTouchTap}/>
           <Dialog title="Final Score" actions={standardActions} modal={false} open={this.state.open}>
-            <div className="container border-test">
+            <div className="container border-test feedback">
               <div className="row>">
                 <div className="col-sm-4 border-test">
                   <i className="material-icons summary-icon">{emoticon}</i>
