@@ -86,7 +86,7 @@ export default class Summary extends React.Component {
     );
 
     const totalPoints = this.props.playerScore + this.props.scoreToAdd;
-    const shareUrl = 'http://0.0.0.0:3000/';
+    const shareUrl = 'https://wiki-where.github.io/';
     const title = `I played WikiWhere and got ${totalPoints} points, try to beat me!`;
     const description = 'WikiWhere is a geography trivia game that puts your knowledge about the world to the test.';
     const hashtags = ['WikiWhere'];

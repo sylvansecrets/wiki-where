@@ -112,7 +112,7 @@ function generateQuestion(difficulty) {
     .catch(error => {
       console.warn(error);
       return generateQuestion(difficulty);
-    })
+    });
 }
 
 export function newGame(difficulty = 'easy') {
