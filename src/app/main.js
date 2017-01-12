@@ -42,8 +42,10 @@ export class Main extends Component {
         score: 0,
         difficulty: 'easy'
       },
-      open: true
+      open: true,
+      showSideBar: true
     };
+
     this.addHint = addHint.bind(this);
     this.newQuestion = newQuestion.bind(this);
     this.setPlayerAnswerCoords = setPlayerAnswerCoords.bind(this);
@@ -51,7 +53,29 @@ export class Main extends Component {
     this.newGame = newGame.bind(this);
     this.reset = reset.bind(this);
     this.flewHome = flewHome.bind(this);
+    this.hiddenHandler = this.hiddenHandler.bind(this);
+
+
+
   }
+
+    hiddenHandler(e) {
+      e.preventDefault();
+      this.setState({showSideBar: !this.state.showSideBar});
+      console.log(this.state.showSideBar);
+    }
+
+    sideBarClass() {
+      let outputClass = '';
+      if (!this.state.showSideBar) {outputClass = " hideBar"}
+      return outputClass;
+    }
+
+    buttonClass(){
+      let outputClass = '';
+      if (!this.state.showSideBar) {outputClass = " regress-button"}
+      return outputClass;
+    }
 
   render() {
     return (
@@ -72,8 +96,7 @@ export class Main extends Component {
         </div>*/}
         }
         <Header reset={this.reset}/>
-          <div className="main row">
-            <div>
+          <div className={"main row" + "sideBar" + this.sideBarClass()}>
               <Player
                 playerScore={this.state.data.score}
                 currentRound={this.state.data.questionCount}
@@ -85,7 +108,6 @@ export class Main extends Component {
                 newQuestion={this.newQuestion}
                 setPlayerAnswerCoords={this.setPlayerAnswerCoords}
                 />
-            </div>
           </div>
           <div className="submit-btn">
             <Submit
@@ -100,6 +122,10 @@ export class Main extends Component {
               playerScore={this.state.data.score}
               />
           </div>
+        <div className={"shrink" + this.buttonClass()} onClick={this.hiddenHandler}>
+          <i className="material-icons to-shrink chevron">chevron_left</i>
+          <i className="material-icons to-expand chevron">chevron_right</i>
+        </div>
       </div>
     );
   }
