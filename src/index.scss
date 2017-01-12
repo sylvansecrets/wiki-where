@@ -58,6 +58,10 @@ h1 {
   z-index: 3;
   overflow: hidden;
 
+  :hover {
+    cursor: pointer;
+  }
+
   .to-expand {
     display: none;
   }
