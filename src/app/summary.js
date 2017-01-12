@@ -77,6 +77,7 @@ export default class Summary extends React.Component {
 
   handleTouchTap() {
     this.setState({open: true});
+    this.props.hideSideBar();
     this.handleRating();
   }
 
@@ -126,5 +127,6 @@ export default class Summary extends React.Component {
 Summary.propTypes = {
   newGame: React.PropTypes.func.isRequired,
   playerScore: React.PropTypes.number.isRequired,
-  scoreToAdd: React.PropTypes.number.isRequired
+  scoreToAdd: React.PropTypes.number.isRequired,
+  hideSideBar: React.PropTypes.func.isRequired
 };
