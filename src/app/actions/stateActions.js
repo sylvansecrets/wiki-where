@@ -24,8 +24,6 @@ export function flewHome() {
 }
 
 export function addHint() {
-  console.log('Adding a new Hint');
-  console.log(this.state.data);
   if (this.state.data.hintCount >= MAX_HINT) {
     console.warn('Number of hints already at maximum');
     return;
@@ -36,8 +34,6 @@ export function addHint() {
 }
 
 export function newQuestion(difficulty = 'easy') {
-  console.log('fetching new questions');
-  console.log(`On the ${this.state.data.questionCount} question`);
   if (this.state.data.questionCount >= MAX_QUESTION) {
     console.warn(`The game ends at ${MAX_QUESTION} questions`);
     return;
@@ -74,7 +70,6 @@ export function newQuestion(difficulty = 'easy') {
 }
 
 function generateQuestion(difficulty) {
-  console.log('fetching new questions');
   let answerLocation;
   let cityString;
   let city;
@@ -95,12 +90,10 @@ function generateQuestion(difficulty) {
       return wikiTextFetch(city);
     })
     .then(responseObj => {
-      console.log(responseObj.query);
       return parseWikiResponse(responseObj);
     })
     .then(parsedString => {
       const parsedQuestions = parsedString.slice(0, 4);
-      console.log('at location', answerLocation);
       if (parsedString.length === 0) {
         return generateQuestion(difficulty);
       }
@@ -117,7 +110,6 @@ function generateQuestion(difficulty) {
 }
 
 export function newGame(difficulty = 'easy') {
-  console.log(difficulty);
   this.setState({
     data: update(
       this.state.data,
@@ -179,7 +171,6 @@ function wikiTextFetch(cityName) {
 }
 
 function googleLocation(cityName) {
-  console.log('locating', cityName);
   return new Promise((resolve, reject) => {
     const geocoder = new window.google.maps.Geocoder();
     geocoder.geocode({address: cityName}, (results, status) => {
