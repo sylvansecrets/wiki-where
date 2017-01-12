@@ -30,6 +30,10 @@ function censor(text, censorText, replaceText = CENSOR_BLOCK, replaceCount = 5, 
     let endJ = 0;
     let j = 0;
     const word = textList[i];
+    let wordPunc = '';
+    if (word && word[word.length - 1].match(/[.!?;:"']/)) {
+      wordPunc = word[word.lenght - 1];
+    }
     for (let k = 0; k < word.length; k += 1) {
       if (word[k] === censorText[j]) {
         j += 1;
@@ -42,7 +46,7 @@ function censor(text, censorText, replaceText = CENSOR_BLOCK, replaceCount = 5, 
       }
     }
     if ((endJ - initJ) > agreement) {
-      censoredList.push(replaceText.repeat(replaceCount));
+      censoredList.push(replaceText.repeat(replaceCount) + wordPunc);
     } else {
       censoredList.push(word);
     }
@@ -51,7 +55,7 @@ function censor(text, censorText, replaceText = CENSOR_BLOCK, replaceCount = 5, 
 }
 
 function stripParen(text) {
-  return text.replace(/\((.*?)\)/g, '');
+  return text.replace(/\((.*)\)/g, '');
 }
 
 function censoredOnly(text, censorBlock = CENSOR_BLOCK) {
