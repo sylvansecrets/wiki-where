@@ -70,7 +70,12 @@ export default class Submit extends React.Component {
     const finalRound = (
       <Dialog contentClassName="dialogRadiusHack" overlayClassName="modal-bg" modal={false} open={this.state.open}>
         {result}<br/>
-        <Summary newGame={this.props.newGame} playerScore={this.props.playerScore} scoreToAdd={this.props.scoreToAdd}/>
+        <Summary
+        newGame={this.props.newGame}
+        playerScore={this.props.playerScore}
+        scoreToAdd={this.props.scoreToAdd}
+        hideSideBar={this.props.hideSideBar}
+        />
       </Dialog>
     );
 
@@ -94,5 +99,6 @@ Submit.propTypes = {
   currentRound: React.PropTypes.number.isRequired,
   newGame: React.PropTypes.func.isRequired,
   playerScore: React.PropTypes.number.isRequired,
-  newQuestion: React.PropTypes.func.isRequired
+  newQuestion: React.PropTypes.func.isRequired,
+  hideSideBar: React.PropTypes.func.isRequired
 };
