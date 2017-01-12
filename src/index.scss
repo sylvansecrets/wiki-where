@@ -23,25 +23,32 @@ h1 {
 
 .questions-container{
   position: absolute;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 6px;
+}
+.question-describe {
+  font-weight: 500;
+  font-size: 1.3em;
+  padding-bottom: 5px
 }
 
 .questions {
-  overflow-y: scroll;
+  overflow-y: auto;
   @media screen and (min-height: 300px) {
-    height: 100px
+    max-height: 100px
   }
   @media screen and (min-height: 200px) {
-    height: 200px
+    max-height: 200px
   }
 
   @media screen and (min-height: 500px) {
-    height: 300px
+    max-height: 300px
   }
   @media screen and (min-height: 700px) {
-    height: 500px
+    max-height: 500px
   }
   @media screen and (min-height: 900px) {
-    height: 700px
+    max-height: 700px
   }
 }
 
@@ -221,7 +228,21 @@ h1 {
 
 .hint-next-btn {
   background-color: white !important;
-  left: 25%;
+  position: absolute;
+  padding-bottom: 10px;
+}
+
+.hint-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px, 0, 10px, 0;
+
+}
+
+.player-box {
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
 
 .social-media-group {
