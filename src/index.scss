@@ -1,3 +1,18 @@
+@mixin responsive-max-height ($deadspace) {
+  @media screen and (min-height: 300px) {
+    max-height: 300px - $deadspace;
+  }
+  @media screen and (min-height: 500px) {
+    max-height: 500px - $deadspace;
+  }
+  @media screen and (min-height: 700px) {
+    max-height: 700px - $deadspace;
+  }
+  @media screen and (min-height: 900px) {
+    max-height: 900px - $deadspace;
+  }
+}
+
 html, body, #root {
   margin: 0;
   height: 100%;
@@ -21,6 +36,56 @@ h1 {
   color: white;
 }
 
+.welcome-text {
+  overflow-y: auto;
+  @include responsive-max-height(200px);
+}
+
+.chevron {
+  line-height: 30px;
+  font-size: 2.5em;
+}
+
+.shrink{
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  position: fixed;
+  top: 120px;
+  left: 335px;
+  border-radius: 4px;
+  transition: left 0.3s;
+  z-index: 3;
+  overflow: hidden;
+
+  .to-expand {
+    display: none;
+  }
+
+  .to-shrink {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.shrink.regress-button {
+  position: fixed;
+  top: 120px;
+  left: 0px;
+  visibility: visible;
+  opacity: 1;
+
+  .to-expand {
+    display: inline-block;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .to-shrink {
+    display: none;
+  }
+}
+
 .questions-container{
   position: absolute;
   background-color: rgba(0,0,0,0.3);
@@ -34,24 +99,16 @@ h1 {
 
 .questions {
   overflow-y: auto;
-  @media screen and (min-height: 300px) {
-    max-height: 100px
-  }
-  @media screen and (min-height: 200px) {
-    max-height: 200px
-  }
-
-  @media screen and (min-height: 500px) {
-    max-height: 300px
-  }
-  @media screen and (min-height: 700px) {
-    max-height: 500px
-  }
-  @media screen and (min-height: 900px) {
-    max-height: 700px
-  }
+  @include responsive-max-height(200px);
 }
 
+.sideBar {
+  transition: transform 2s ease-in;
+}
+
+.hideBar {
+  transform: translateX(-500%)
+}
 
 @keyframes dropHeader {
   0% {
