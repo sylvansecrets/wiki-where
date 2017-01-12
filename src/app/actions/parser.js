@@ -54,8 +54,12 @@ function censor(text, censorText, replaceText = CENSOR_BLOCK, replaceCount = 5, 
   return censoredList.join(' ').trim();
 }
 
-function stripParen(text) {
-  return text.replace(/\((.*)\)/g, '');
+function stripParen(s){
+  let rx=/\s*\([^)(]*\)\s*/;
+  while(rx.test(s)){
+    s= s.split(rx).join(' ');
+  }
+  return s.replace(/[)(]/g,'');
 }
 
 function censoredOnly(text, censorBlock = CENSOR_BLOCK) {
