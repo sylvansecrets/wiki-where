@@ -13,7 +13,7 @@ export class Questions extends React.Component {
     const questionToRender = (this.props.questionList).slice(0, this.props.hintCount);
     console.log(questionToRender);
     return (
-      <div>
+      <div className="questions">
       {questionToRender.map(question =>
         <Question
           question={question}
