@@ -11,7 +11,6 @@ export class Questions extends React.Component {
 
   render() {
     const questionToRender = (this.props.questionList).slice(0, this.props.hintCount);
-    console.log(questionToRender);
     return (
       <div className="questions">
       {questionToRender.map(question =>
