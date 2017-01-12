@@ -45,18 +45,20 @@ class Welcome extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
           <Dialog title="Welcome to WikiWhere" actions={standardActions} modal={false} open={this.state.open}>
-            <p>This game is designed to test your knowledge about major cities and their geographical location. There will be 5 rounds of trivia with scoring based on how close you are to the city center and how many hints are used.</p>
-            <div className="welcome-modal-col">
-              <i className="material-icons modal-globe-icon">public</i><i className="material-icons">swap_horiz</i>
-              <p>Drag to move on the globe</p>
-            </div>
-            <div className="welcome-modal-col">
-              <i className="material-icons modal-globe-icon">public</i><i className="material-icons">zoom_in</i>
-              <p>Pinch, use the mouse scroll wheel, or drag with the right mouse button to zoom</p>
-            </div>
-            <div className="welcome-modal-col">
-              <i className="material-icons modal-globe-icon">public</i><i className="material-icons">touch_app</i>
-              <p>Click or tap on the globe to make your guess, and then submit it!</p>
+          <div className="welcome-text">
+              <p>This game is designed to test your knowledge about major cities and their geographical location. There will be 5 rounds of trivia with scoring based on how close you are to the city center and how many hints are used.</p>
+              <div className="welcome-modal-col">
+                <i className="material-icons modal-globe-icon">public</i><i className="material-icons">swap_horiz</i>
+                <p>Drag to move on the globe</p>
+              </div>
+              <div className="welcome-modal-col">
+                <i className="material-icons modal-globe-icon">public</i><i className="material-icons">zoom_in</i>
+                <p>Pinch, use the mouse scroll wheel, or drag with the right mouse button to zoom</p>
+              </div>
+              <div className="welcome-modal-col">
+                <i className="material-icons modal-globe-icon">public</i><i className="material-icons">touch_app</i>
+                <p>Click or tap on the globe to make your guess, and then submit it!</p>
+              </div>
             </div>
           </Dialog>
         </div>
