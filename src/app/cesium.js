@@ -103,6 +103,9 @@ export default class Alkali extends React.Component {
   componentDidUpdate() {
     const answer = this.viewer.entities.getById('answer');
     const line = this.viewer.entities.getById('line');
+    const camPosition = Cesium.Ellipsoid.WGS84.cartesianToCartographic(this.viewer.camera.position);
+    const camLongitude = Cesium.Math.toDegrees(camPosition.longitude);
+
     if (this.props.gameState === 'answered' || this.props.gameState === 'end') {
       answer.position = Cesium.Cartesian3.fromDegrees(this.props.correctAnswerCoords[0], this.props.correctAnswerCoords[1]);
       answer.show = true;
@@ -119,7 +122,7 @@ export default class Alkali extends React.Component {
       line.show = false;
       if (this.props.flyHomeSwitch === true) {
         this.viewer.camera.flyTo({
-          destination: new Cesium.Cartesian3(this.viewer.camera.position.x, this.viewer.camera.position.y, this.viewer.scene.screenSpaceCameraController.maximumZoomDistance)
+          destination: Cesium.Cartesian3.fromDegrees(camLongitude, 0, this.viewer.scene.screenSpaceCameraController.maximumZoomDistance)
         });
         const guess = this.viewer.entities.getById('guess');
         guess.show = false;
