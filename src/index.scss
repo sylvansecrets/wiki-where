@@ -115,11 +115,11 @@ h1 {
 }
 
 .sideBar {
-  transition: transform 2s ease-in;
+  transition: transform 0.3s ease-in;
 }
 
 .hideBar {
-  transform: translateX(-500%)
+  transform: translateX(-335px)
 }
 
 @keyframes dropHeader {
